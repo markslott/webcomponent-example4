@@ -1,0 +1,12 @@
+{
+    "name": "webcomponent4",
+    "description": "My amazing polymer app",
+    "version": "0.0.1",
+    "bugs": {
+        "url": "https://github.com/webcomponent4/issues"
+    },
+    "dependencies": {
+        "lit-element": "^2.3.1",
+        "lit-html": "^1.2.1"
+    }
+}
