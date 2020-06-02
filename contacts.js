@@ -66,7 +66,7 @@ export default class Contacts extends LitElement {
                     </thead>
                     <tbody>
                         ${this.data.map(item => html`
-                        <tr>
+                        <tr @click="${this.rowClicked}">
                             <td>${item.name}</td>
                             <td>${item.email}</td>
                             <td>${item.website}</td>
@@ -78,7 +78,7 @@ export default class Contacts extends LitElement {
             </div>`
     }
     
-    //in connectedCallback we retrieve data end render it
+    //in connectedCallback we retrieve data and render it
     connectedCallback() {
         super.connectedCallback();
         this.getData();
@@ -101,6 +101,16 @@ export default class Contacts extends LitElement {
     //called by the refresh button via onclick
     refresh() {
         this.getData();
+    }
+
+    rowClicked(event) {
+        this.dispatchEvent(
+            new CustomEvent('contactrowclicked', {
+                detail: event.target.innerHTML,
+                bubbles: true,
+                composed: true
+            })
+        );
     }
 
     async getData() {

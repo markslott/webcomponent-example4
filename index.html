@@ -4,6 +4,18 @@
 </head>
 <html>
     <body>
-        <my-contacts title="My table"></my-contacts>
+        <my-contacts id="mycontacts" title="My table"></my-contacts>
     </body>
+
+    <script>
+        var mycontacts = document.getElementById('mycontacts');
+        mycontacts.addEventListener(
+            'contactrowclicked',
+            function (e) {
+                e.preventDefault();
+                console.log(e.detail);
+            },
+            false
+        );
+    </script>
 </html>
